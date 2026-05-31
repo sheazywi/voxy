@@ -155,6 +155,7 @@ loom {
 
     compileOnly("maven.modrinth:flashback:VaqZB1DF")
 }
+}
 
 
 def targetJavaVersion = 25
