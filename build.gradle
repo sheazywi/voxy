@@ -109,7 +109,6 @@ processResources {
 
 loom {
     accessWidenerPath = file("src/main/resources/voxy.accesswidener")
-    accessWidener.namespace = "intermediary"
 }
 
 def runtimeOnlyMsk = {arg->}
