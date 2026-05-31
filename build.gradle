@@ -108,9 +108,12 @@ processResources {
 }
 
 loom {
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     accessWidenerPath = file("src/main/resources/voxy.accesswidener")
 }
+
+dependencies {
+     minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 
