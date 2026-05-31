@@ -1,7 +1,8 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
     id 'maven-publish'
 }
+
 def INCLUDE_OTHER_ARCHS = "true".equalsIgnoreCase(project.findProperty("includeOtherArchs"))
 
 def isInGHA = System.getenv("GITHUB_ACTIONS") == "true"
@@ -114,14 +115,14 @@ loom {
 dependencies { // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
     modRuntimeOnlyMsk(fabricApi.module("fabric-api-base", project.fabric_version))
     modRuntimeOnlyMsk(fabricApi.module("fabric-rendering-fluids-v1", project.fabric_version))
     modRuntimeOnlyMsk(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
     modRuntimeOnlyMsk(fabricApi.module("fabric-command-api-v2", project.fabric_version))
-
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     //TODO: this is to eventually not need sodium installed as atm its just used for parsing shaders
     modRuntimeOnlyMsk "maven.modrinth:sodium:mc1.21.1-0.8.12-fabric"
@@ -156,7 +157,7 @@ dependencies { // To change the versions see the gradle.properties file
 }
 
 
-def targetJavaVersion = 25
+def targetJavaVersion = 21
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     it.options.release = targetJavaVersion
