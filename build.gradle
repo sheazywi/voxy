@@ -119,10 +119,10 @@ dependencies { // To change the versions see the gradle.properties file
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    modRuntimeOnlyMsk(fabricApi.module("fabric-api-base", project.fabric_version))
-    modRuntimeOnlyMsk(fabricApi.module("fabric-rendering-fluids-v1", project.fabric_version))
-    modRuntimeOnlyMsk(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
-    modRuntimeOnlyMsk(fabricApi.module("fabric-command-api-v2", project.fabric_version))
+    modRuntimeOnlyMsk(fabricApi.module("fabric-api-base", project.fabric_api_version))
+    modRuntimeOnlyMsk(fabricApi.module("fabric-rendering-fluids-v1", project.fabric_api_version))
+    modRuntimeOnlyMsk(fabricApi.module("fabric-resource-loader-v0", project.fabric_api_version))
+    modRuntimeOnlyMsk(fabricApi.module("fabric-command-api-v2", project.fabric_api_version))
 
     //TODO: this is to eventually not need sodium installed as atm its just used for parsing shaders
     modRuntimeOnlyMsk "maven.modrinth:sodium:mc1.21.1-0.8.12-fabric"
