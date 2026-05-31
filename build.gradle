@@ -154,7 +154,6 @@ dependencies { // To change the versions see the gradle.properties file
 
     modCompileOnly("maven.modrinth:vivecraft:1.21.1-1.1.14-b2-fabric")
 }
-}
 
 
 def targetJavaVersion = 25
